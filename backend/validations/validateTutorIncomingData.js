@@ -50,8 +50,8 @@ const validateTutorIncomingData = [
 
   // Validate subjects
   body("subjects")
-    .isArray({ min: 1 })
-    .withMessage("Subjects must be an array with at least one entry")
+    .isArray({ min: 1, max: 3 })
+    .withMessage("Only 3 subjects are allowed.")
     .custom((subjects) => {
       subjects.forEach((subject, index) => {
         if (typeof subject !== "string" || subject.trim() === "") {
